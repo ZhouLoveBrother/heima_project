@@ -33,7 +33,7 @@
 
 <script>
 // 在script中进行模块方法的引入 login.js用户验证
-import { login } from '@/api/admin_user.js';
+import { login } from '@/api/admin_user.js'
 
 export default {
   data () {

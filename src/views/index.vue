@@ -5,8 +5,8 @@
       <el-aside width="200px">
         <!-- logo设置 -->
         <div class="logo"></div>
-        <!-- 设置多级菜单 -->
 
+        <!-- 设置多级菜单 -->
         <el-menu
           :router="true"
           :unique-opened="true"
@@ -22,7 +22,7 @@
               <span>用户管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="1-1">
+              <el-menu-item index="/index/classIfyUser">
                 <template slot="title">
                   <i class="el-icon-location"></i>
                   <span>用户列表</span>
@@ -37,10 +37,16 @@
               <span>权限管理</span>
             </template>
             <el-menu-item-group>
-              <el-menu-item index="2-1">
+              <el-menu-item index="/index/role">
                 <template slot="title">
                   <i class="el-icon-location"></i>
-                  <span>权限管理</span>
+                  <span>角色列表</span>
+                </template>
+              </el-menu-item>
+              <el-menu-item index="/index/right">
+                <template slot="title">
+                  <i class="el-icon-location"></i>
+                  <span>权限列表</span>
                 </template>
               </el-menu-item>
             </el-menu-item-group>
@@ -95,9 +101,13 @@
       <!-- 右边栏 -->
       <el-container>
         <el-header>
-          <span id="header_top">后台管理系统</span>
+          <span class="toggle-btn myicon myicon-menu"></span>
+          <h1 class="system-title">电商后台管理系统</h1>
+          <a href="javaScript:;" class="welcome">退出</a>
         </el-header>
-        <el-main>Main</el-main>
+        <el-main>
+          <router-view></router-view>
+        </el-main>
       </el-container>
     </el-container>
   </div>
@@ -114,11 +124,7 @@ export default {
 <style lang="less" scoped>
 .index {
   height: 100%;
-  #header_top {
-    padding-left: 500px;
-    font-size: 20px;
-    color: #fff;
-  }
+
   .el-menu-admin:not(.el-menu--collapse) {
     width: 200px;
     min-height: 400px;

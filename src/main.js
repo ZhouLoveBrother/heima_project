@@ -16,10 +16,12 @@ router.beforeEach((to, from, next) => {
   // 获取token进行验证是否登录
   var token = localStorage.getItem('heima_user_token')
   // 进行判断
-  if (token || to.path == '/login') {
+  if (token || to.path === '/login') {
     next() // 必须调用该方法
   } else if (!token && to.path !== '/login') {
-    next({ name: 'Login' })
+    next({
+      name: 'Login'
+    })
   }
 })
 
