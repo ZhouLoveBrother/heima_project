@@ -408,12 +408,19 @@ export default {
         pagesize: this.pagesize
       })
         .then(res => {
-          // console.log(res)
-          this.userList = res.data.data.users
-          this.total = res.data.data.total
+          console.log(res)
+          if (res.data.meta.status === 200) {
+            this.userList = res.data.data.users
+            this.total = res.data.data.total
+          } else {
+            this.$message({
+              type: 'error',
+              message: res.data.meta.msg
+            })
+          }
         })
         .catch(err => {
-          console.error(err)
+          console.log(err)
         })
     },
 
