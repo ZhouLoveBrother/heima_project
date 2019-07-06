@@ -261,7 +261,7 @@ export default {
             .catch(err => {
               this.$message({
                 type: 'error',
-                message: res.data.meta.msg
+                message: err
               })
             })
         } else {
